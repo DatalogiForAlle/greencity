@@ -10,36 +10,42 @@
 \renewcommand{\AuthorEmail}{dybber@di.ku.dk}
 
 \begin{document}
+
 \renewcommand{\Title}{\Ark Tegn med Processing.py}%
 \begin{exercisebox}[adjusted title=Første program]
-Tast følgende eksempel ind i Processing editoren og tryk på
-\includegraphics[height=4mm]{../illustrations/images/processing_play_button}-knappen:
-\begin{python}
-size(400, 400)
+Gå ind på \url{https://editor.p5js.org/} og tast følgende eksempel ind
+i p5.js webeditoren. Tryk på play knappen
+\includegraphics[height=4mm]{../illustrations/images/play_p5js} for at afprøve
+koden.
 
-# Træ
-rect(55, 50, 10, 20)
-ellipse(60, 35, 30, 40)
-\end{python}
+\begin{javascript} 
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  // Træ
+  rect(55, 50, 10, 20);
+  ellipse(60, 35, 30, 40);
+}
+\end{javascript}
 
 \vspace{3mm}
 \noindent
-Gem med det samme projektet og kald det ``GreenCity''.
+Gem projektet og kald det ``GreenCity'' (kræver at du opretter en bruger).
 
 \vspace{3mm}
 \noindent
-Tilføj nu:
-\begin{python}
-# Kraftværk
-rect(120, 50, 60, 30)
-rect(160, 20, 10, 30)
-triangle(120, 50, 136, 40, 136, 50)
-triangle(136, 50, 152, 40, 152, 50)
-\end{python}
-\vspace{3mm}
-\noindent
+Tilføj nu følgende til draw-funktionen:
+\begin{javascript}
+// Kraftværk
+rect(120, 50, 60, 30);
+rect(160, 20, 10, 30);
+triangle(120, 50, 136, 40, 136, 50);
+triangle(136, 50, 152, 40, 152, 50);
+\end{javascript}
 Og:
-% \begin{python}
+% \begin{javascript}
 % # Person
 % ellipse(270, 65, 8, 8)
 % line(270, 70, 270, 75)
@@ -47,14 +53,14 @@ Og:
 % line(270, 69, 263, 75)
 % line(270, 75, 275, 82)
 % line(270, 75, 265, 82)
-% \end{python}
-\begin{python}
-# Vindmølle
-line(300, 50, 320, 51)
-line(300, 50, 289, 67)
-line(300, 50, 291, 32)
-line(300, 50, 300, 90)
-\end{python}
+% \end{javascript}
+\begin{javascript}
+// Vindmølle
+line(300, 50, 320, 51);
+line(300, 50, 289, 67);
+line(300, 50, 291, 32);
+line(300, 50, 300, 90);
+\end{javascript}
 
 \tcbsubtitle{Opgave}
 Prøv nu at tegne en bil og en sky:
@@ -76,24 +82,23 @@ af rød (0-255), blå (0-255) og grøn (0-255).
 Her er nogle grundfarver:
 
 \begin{minipage}{0.45\linewidth}
-\begin{python}
-fill(255, 0, 0)  # rød
-fill(0, 255, 0)  # grøn
-fill(0, 0, 255)  # blå
-\end{python}
+\begin{javascript}
+fill(255, 0, 0);  // rød
+fill(0, 255, 0);  // grøn
+fill(0, 0, 255);  // blå
+\end{javascript}
 \end{minipage}
 \begin{minipage}{0.45\linewidth}
-\begin{python}
-fill(0, 0, 0)       # sort
-fill(255, 255, 255) # hvid
-fill(255, 255, 0)   # gul
-\end{python}
+\begin{javascript}
+fill(0, 0, 0);       // sort
+fill(255, 255, 255); // hvid
+fill(255, 255, 0);   // gul
+\end{javascript}
 \end{minipage}
 
+\noindent
 Find eventuelt farver ved hjælp af en online farvevælger eller RGB
 farve tabel. Søg for eksempel efter ``rgb color picker''.
-
-\vspace{2mm}
 
 \tcbsubtitle{Streger og omrids}
 Til at angive farven på streger (fx \ttpy{line}) og omrids
@@ -104,11 +109,9 @@ til at slå optegning af omrids fra.
 \newpage
 \begin{exercisebox}[adjusted title=Eksempel]
 Her er et eksempel på hvordan det kan se ud efter farvelægning:
-\vspace{1mm}
 \begin{center}
 \includegraphics[width=0.55\textwidth]{../illustrations/images/farvelagt.png}
 \end{center}
-\vspace{-1mm}
 \end{exercisebox}
 
 \begin{exercisebox}[adjusted title=Green City]
@@ -124,8 +127,8 @@ det skal se ud.
 
 \vspace{2mm}
 \noindent
-Tip: For at ændre baggrundsfarven fra grå  kan i bruge \ttpy{rect(0, 0, 400, 400)}, som i
-allerede kender, men i kan også bruge kommandoen \ttpy{background(r, g, b)}.
+Tip: For at ændre baggrundsfarven  kan I bruge \ttpy{rect(0, 0, 400, 400)}, som I
+allerede kender, men I kan også bruge kommandoen \ttpy{background(r, g, b)}.
 Den sletter alt og udfylder skærmen med den angivne farve.
 
 \begin{center}
@@ -136,6 +139,7 @@ Den sletter alt og udfylder skærmen med den angivne farve.
 \noindent
 Husk at bruge kommentarer, så I nemt kan finde rundt i koden!
 \end{exercisebox}
+
 \newpage
 \stepcounter{handout}
 \renewcommand{\Title}{\Ark Variable}%
@@ -145,31 +149,40 @@ projektet. Kald det ``Akvarie''.
 
 \noindent
 Skriv denne stump kode ind:
-\begin{python}
-size(400, 400)
-fishX = 150
-ellipse(fishX, 200, 120, 75)
-triangle(fishX - 60, 200, fishX - 90, 170, fishX - 90, 230)
-\end{python}
+\begin{javascript}
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+  
+  var fishX = 150;
+  ellipse(fishX, 200, 120, 75);
+  triangle(fishX - 60, 200, fishX - 90, 170, fishX - 90, 230);
+}
+
+\end{javascript}
 Kør koden og prøv derefter at ændre 150 til et andet tal i angivelsen af \ttpy{fishX}.\\
 
 \noindent
 Tilføj nu følgende:
-\begin{python}
-eyeSize = 15
-ellipse(fishX + 30, 190, eyeSize, eyeSize)
-\end{python}
+\begin{javascript}
+var eyeSize = 15;
+ellipse(fishX + 30, 190, eyeSize, eyeSize);
+\end{javascript}
 Prøv at ændre på værdien af \ttpy{eyeSize}.
 \end{exercisebox}
 
 \begin{exercisebox}[adjusted title=Opgaver]
+\noindent
 I har nu tilføjet en fisk, der kan flyttes, bare ved at ændre én
 værdi.
 
 \begin{itemize}
 \item Farvelæg fisken
 
-\item Tegn en finne på siden af fisken vha. triangle()-kommandoen\footnote{Læs om \ttpy{triangle()} i dokumentationen: \url{https://py.processing.org/reference/triangle.html}}
+\item Tegn en finne på siden af fisken vha. triangle()-kommandoen\footnote{Læs om \ttpy{triangle()} i dokumentationen: \url{https://p5js.org/reference/##/p5/triangle}}
 
 \item Få finnen til at flytte med når I ændrer \ttpy{fishX}
 
@@ -181,6 +194,7 @@ værdi.
 
 \noindent
 Husk at gemme projektet. Vi skal arbejde videre med det senere.
+
 \end{exercisebox}
 \newpage
 \begin{exercisebox}[adjusted title=Green City fortsat]
@@ -195,11 +209,11 @@ objekternes placering, så vi senere kan animere objekterne.
 \item Lav en variabel \ttpy{treeY}, så træet kan flyttes vertikalt
 \end{itemize}
 
+\hspace{1cm}
 \begin{center}
 \includegraphics[width=0.5\textwidth]{../illustrations/images/carX-cloudX-treeXY.png}
 \end{center}
 \end{exercisebox}
-
 \begin{exercisebox}[adjusted title=Akvarie fortsat]
 Brug nu det I har lært til at udvide akvarie projektet, her er et
 eksempel, men brug gerne jeres fantasi! I eksemplet er der brugt en
@@ -215,6 +229,7 @@ placeringen af den ekstra fisk.
 
 \newpage
 \stepcounter{handout}
+
 \renewcommand{\Title}{\Ark Funktioner}%
 
 \begin{exercisebox}[adjusted title=Fiske-funktion]
@@ -224,24 +239,27 @@ og sætte struktur på kode.\\
 
 \noindent
 Åbn akvarie-projektet. Tilføj følgende ``fiske-tegne-funktion''
-nederst i projektet. BEMÆRK! Linjeindrykning med 4 mellemrum er vigtig!
+øverst i projektet (før setup/draw). BEMÆRK! Linjeindrykning med 4 mellemrum er vigtig!
 
-\begin{python}
-def drawSimpleFish(x, y):
-    ellipse(x, y, 120, 75)
-    triangle(x - 60, y, x - 90, y - 30, x - 90, y + 30)
-\end{python}
+\begin{javascript}
+function drawSimpleFish(x, y) {
+    ellipse(x, y, 120, 75);
+    triangle(x - 60, y, x - 90, y - 30, x - 90, y + 30);
+}
+\end{javascript}
 
 \noindent
-Derefter kan vi kalde funktionen således:
-\begin{python}
-drawSimpleFish(100,  50)
-drawSimpleFish(300, 200)
-drawSimpleFish(20, 20)
-drawSimpleFish(80, 80)
-\end{python}
-Nu går det meget hurtigere med at få fyldt akvariet med fisk, og vi
-undgår at kopiere kode.
+Derefter kan vi kalde funktionen således i draw-funktionen:
+\begin{javascript}
+function draw() {
+	drawSimpleFish(100,  50);
+	drawSimpleFish(300, 200);
+	drawSimpleFish(20, 20);
+	drawSimpleFish(80, 80);
+}
+\end{javascript}
+Vi undgår at kopiere kode, og det går meget hurtigere med at få fyldt
+akvariet.
 
 \tcbsubtitle{Opgave}
 Opret jeres egen \ttpy{drawFish(x, y)} funktion, der tegner hele jeres
@@ -251,16 +269,17 @@ fisk med farve, finner og øjne.
 \begin{exercisebox}[adjusted title=Green City fortsat]
 Ovre i Green City-projektet kan I også prøve at skrive en funktion
 til at tegne træer:
-\begin{python}
-def drawTree(treeX):
-    fill(100, 100, 0)
-    rect(treeX - 5, 350, 10, 20)
-    fill(0, 200, 0)
-    ellipse(treeX, 335, 40, 50)
+\begin{javascript}
+function drawTree(treeX) {
+    fill(100, 100, 0);
+    rect(treeX - 5, 350, 10, 20);
+    fill(0, 200, 0);
+    ellipse(treeX, 335, 40, 50);
+}
 
-drawTree(160)
-drawTree(300)
-\end{python}
+drawTree(160);
+drawTree(300);
+\end{javascript}
 
 \noindent
 Få sat struktur på koden til Green City-projektet ved hjælp af funktioner:
@@ -270,22 +289,23 @@ Få sat struktur på koden til Green City-projektet ved hjælp af funktioner:
 \item Skriv en \ttpy{drawCar(x)}-funktion, der tegner en bil
 \item Skriv en \ttpy{drawPowerplant()}-funktion og en
   \ttpy{drawWindmill()}-funktion, der tegner hhv. kraftværket og
-  vindmøllen. Vi får ikke behov for at flytte på dem, så de behøver
-  ikke tage koordinater som argument.
+  vindmøllen. I får muligvis ikke behov for at flytte på dem, så de
+  behøver ikke tage koordinater som argument.
 \end{itemize}
 
 \noindent
-Kald alle funktionerne nederst i dit program. For eksempel:
+Kald alle funktionerne i \ttpy{draw}-funktionen. For eksempel:
 
-\begin{python}
-drawTree(150, 235)
-drawTree(240, 335)
-drawPowerplant()
-drawWindmill()
-drawCar(50)
-drawCloud(280)
-\end{python}
+\begin{javascript}
+drawTree(150, 235);
+drawTree(240, 335);
+drawPowerplant();
+drawWindmill();
+drawCar(50);
+drawCloud(280);
+\end{javascript}
 \end{exercisebox}
+
 \newpage
 
 ~
@@ -297,19 +317,22 @@ drawCloud(280)
 \begin{exercisebox}[adjusted title=Simpel animation]
 Opret et nyt midlertidigt projekt (I behøver ikke gemme det). Tast
 denne stump kode ind:
-\begin{python}
-x = 50
-  
-def setup():
-    size(400, 400)
 
-def draw():
-    global x
-    background(255, 255, 255)
-    fill(255, 0, 0)
-    ellipse(x, 100, 30, 30)
-    x = x + 1
-\end{python}
+\begin{javascript}
+var x = 50;
+
+function setup() {
+    createCanvas(400, 400);
+}
+
+function draw() {
+    background(255, 255, 255);
+    fill(255, 0, 0);
+    ellipse(x, 100, 30, 30);
+    x = x + 1;
+}
+
+\end{javascript}
 
 \noindent
 Funktionen \ttpy{draw} kaldes automatisk 60 gange i sekundet!
@@ -317,15 +340,14 @@ Funktionen \ttpy{draw} kaldes automatisk 60 gange i sekundet!
 \tcbsubtitle{Opgaver}
 \begin{itemize}
 \item Prøv at ændre $50$ til et andet tal 
-\item Prøv at ændre linjen \ttpy{x = x + 1} til \ttpy{x = x - 1} eller til \ttpy{x = x + 5}
+\item Prøv at ændre linjen \ttpy{x = x + 1;} til \ttpy{x = x - 1;} eller til \ttpy{x = x + 5;}
 \item Forsøg at flytte kaldet til \ttpy{background} fra \ttpy{draw}
   til \ttpy{setup} - hvad sker der?
 \end{itemize}
 
-\noindent
 \tcbsubtitle{BEMÆRK!}
-Når man bruger \ttpy{setup}/\ttpy{draw}, er det ikke
-tilladt at \underline{\textit{kalde}} tegne-funktioner udenfor
+Når man bruger \ttpy{setup}/\ttpy{draw}, er det
+ikke tilladt at \underline{\textit{kalde}} tegne-funktioner udenfor
 \ttpy{setup} og \ttpy{draw}. Funktioner defineres udenfor setup og
 draw, men alle \textit{kald} til tegnefunktioner skal flyttes ind i
 enten \ttpy{setup} eller \ttpy{draw}.
@@ -333,19 +355,19 @@ enten \ttpy{setup} eller \ttpy{draw}.
 
 \begin{exercisebox}[adjusted title=Akvarie fortsat]
 \begin{itemize}
-\item \emph{Omskrivning af akvarieprojektet til brug af \ttpy{setup}/\ttpy{draw}:}
-  \begin{itemize}
-  \item Tilføj tomme \ttpy{setup} og \ttpy{draw}-funktioner nederst i programmet
-  \item Kald \ttpy{size(400, 400)} i \ttpy{setup}
-  \item Kald alle tegnefunktionerne i \ttpy{draw}, inkl. tegning af baggrunden
-  \end{itemize}
+%\item \emph{Omskrivning af akvarieprojektet til brug af \ttpy{setup}/\ttpy{draw}:}
+%  \begin{itemize}
+%  \item Tilføj tomme \ttpy{setup} og \ttpy{draw}-funktioner nederst i programmet
+%  \item Kald \ttpy{size(400, 400)} i \ttpy{setup}
+%  \item Kald alle tegnefunktionerne i \ttpy{draw}, inkl. %tegning af baggrunden
+%  \end{itemize}
   
 \item \emph{Få fiskene til at svømme:}
   \begin{itemize}
   \item Opret to globale variabler \ttpy{fish1X} og
     \ttpy{fish2X} (før \ttpy{setup}/\ttpy{draw})
   \item Brug de nye variable som x-argument, når I kalder \ttpy{drawFish()}
-  \item \emph{HUSK} linjerne: ~\ttpy{global fish1X}~ og ~\ttpy{global fish2X}~
+ % \item \emph{HUSK} linjerne: ~\ttpy{global fish1X}~ og ~\ttpy{global fish2X}~
   \item Opdater variablerne med $+1$/$-1$ inde i \ttpy{draw}-funktionen
   \end{itemize}
 \end{itemize}
@@ -360,67 +382,82 @@ enten \ttpy{setup} eller \ttpy{draw}.
 
 \newpage
 \begin{exercisebox}[adjusted title=Tilfældighed]
-\begin{minipage}{0.65\linewidth}
-Opret et helt nyt projekt, gem det som ``random\_circles''.
-  
-Tilføj følgende kode:
-\begin{python}
-def setup():
-    size(400, 400)
+  \vspace{-2mm}
+  \begin{minipage}{0.65\linewidth}
+Opret et helt nyt projekt, gem det som ``circles'', og tilføj:
+\begin{javascript}
+function setup() {
+    createCanvas(400, 400);
+}
 
-def draw():
-    x = random(0, width)
-    y = random(0, height)
-    ellipse(x, y, 30, 30)
-\end{python}
+function draw() {
+    var x = random(0, width);
+    var y = random(0, height);
+    ellipse(x, y, 30, 30);
+}
+\end{javascript}
+
 \end{minipage}
 \begin{minipage}{0.34\linewidth}
+\vspace{-3mm}
 \begin{center}
-\includegraphics[width=0.75\textwidth]{../illustrations/images/randomcircles.png}
+\includegraphics[width=0.7\textwidth]{../illustrations/images/randomcircles.png}
 \end{center}
 \end{minipage}
+\vspace{-4mm}
+
 \tcbsubtitle{Opgaver}
-\vspace{-2mm}
+\vspace{-4mm}
 \begin{itemize}
 \item Få cirklerne til at ændre størrelse tilfældigt
-\item Få cirklerne til at blive tegnet i tilfældige
+\item \vspace{-2mm}Få cirklerne til at blive tegnet i tilfældige
   farver. Eksperimenter jer frem.
 \end{itemize}
-\vspace{-4mm}
+\vspace{-6mm}
 \end{exercisebox}
+
 
 \begin{exercisebox}[adjusted title=Input fra musen]
 \vspace{-2mm}
 Opret et nyt projekt og kald det ``Tegneprogram''. Til tegneprogrammet
 skal vi bruge placeringen af musen, som kan aflæses via de indbyggede variable
 \ttpy{mouseX} og \ttpy{mouseY}. Prøv først at indtaste følgende program:
-\begin{python}
-def setup():
-    size(800, 800)
-    background(255, 255, 255)
-def draw():
-    fill(0, 0, 0)
-    ellipse(mouseX, mouseY, 5, 5)
-  \end{python}
-  \vspace{-4mm}
+\begin{javascript}
+function setup() {
+    createCanvas(800, 800);
+    background(255, 255, 255);
+}
+
+function draw() {
+    fill(0, 0, 0);
+    ellipse(mouseX, mouseY, 5, 5);
+}
+\end{javascript}
+\vspace{-4mm}
 \end{exercisebox}
 
 \begin{exercisebox}[adjusted title=Tastatur input]
 \vspace{-2mm}
 Tastetryk på tastaturet kan opdages ved at tilføje funktionen
-\ttpy{keyPressed}\footnote{Dokumentation: \url{https://py.processing.org/reference/keyPressed.html}}. Prøv at tilføje følgende til tegneprogrammet:
-\begin{python}
-def keyPressed():
-    background(255, 255, 255)
-\end{python}
+\ttpy{keyPressed}\footnote{Dokumentation: \url{https://p5js.org/reference/##/p5/keyPressed}}. Prøv at tilføje følgende til tegneprogrammet:
+
+\begin{javascript}
+function keyPressed() {
+    background(255, 255, 255);
+}
+\end{javascript}
+
 Start programmet og tryk på en vilkårlig tast på tastaturet. For at
 tjekke efter en specifik tast kan variablen ``\ttpy{key}'' aflæses.
-\begin{python}
-def keyPressed():
-    if key == 'c':
-        background(255, 255, 255)
-\end{python}
-\vspace{-2mm}
+
+\begin{javascript}
+function keyPressed() {
+    if (key === 'c') {
+        background(255, 255, 255);
+    }
+  }
+\end{javascript}
+\vspace{-4mm}
 \end{exercisebox}
 
 \begin{exercisebox}[adjusted title=Kreativt tegneprogram]
@@ -428,11 +465,12 @@ def keyPressed():
 Opgaven er nu at lave et tegneprogram, der er mere kunstfærdigt. Tegn
 fx linjer fra hjørner hen til musen. Husk at gemme projektet!
 \begin{center}
-  \includegraphics[height=3.5cm]{../illustrations/images/tegneprogram2.png}
+  \includegraphics[height=2cm]{../illustrations/images/tegneprogram2.png}
   \quad
-  \includegraphics[height=3.5cm]{../illustrations/images/tegneprogram.png}
+  \includegraphics[height=2cm]{../illustrations/images/tegneprogram.png}
 \end{center}
 \end{exercisebox}
+
 \newpage
 \stepcounter{handout}
 \renewcommand{\Title}{\Ark Betingelser}%
@@ -440,13 +478,16 @@ fx linjer fra hjørner hen til musen. Husk at gemme projektet!
 Med betingelser kan vi få ting til at ske når specielle kriterier er
 opfyldt. Åbn akvarie-projektet og prøv at indsætte følgende i
 \ttpy{draw}-funktionen:
-\begin{python}
-if fish1X > 500:
-    fish1X = -40
+
+\begin{javascript}
+if (fish1X > 500) {
+    fish1X = -40;
+}
         
-if fish1X < -50:
-    fish1X = 450
-\end{python}
+if (fish1X < -50) {
+    fish1X = 450;
+}
+\end{javascript}
 
 \noindent
 Hvad sker der?
@@ -461,33 +502,41 @@ kan vi få den til at ændre retning, når den når siderne.
 \item Ændr \ttpy{fish1X = fish1X + 1} til \ttpy{fish1X = fish1X + fish1XVelocity}
 \item Fjern den tidligere \ttpy{fish1X}-betingelse
 \item Tilføj disse betingelser:
-\begin{python}
-if fish1X > 400:
-    fish1XVelocity = -1
-if fish1X < 0:
-    fish1XVelocity = 1
-\end{python}
+
+\begin{javascript}
+if (fish1X > 400) {
+    fish1XVelocity = -1;
+}
+  
+if (fish1X < 0) {
+    fish1XVelocity = 1;
+}
+\end{javascript}
+
 \end{itemize}
 \end{exercisebox}
-
 \begin{exercisebox}[adjusted title=Ændre udseende]
 Prøv at ændre \ttpy{drawFish}-funktionen, så den tager retningen af
 fisken med som argument, og brug en betingelse til at tegne finner og
 øjne forskelligt alt efter hvilken retning fisken svømmer.
 
 \begin{minipage}{0.60\linewidth}
-\begin{python}
-def drawFish(x, y, eyeSize, velocity):
+
+\begin{javascript}
+function drawFish(x, y, eyeSize, velocity) {
     ... tegn kroppen ...
 
-    # Svømmer mod højre
-    if velocity >= 0:
+    // Svømmer mod højre
+    if (velocity >= 0) {
         ... tegn finner og øjne ...
+    }
+    // Svømmer mod venstre
+    if (velocity < 0) {
+        ... tegn finner og øjne ...
+    }
+}
+\end{javascript}
 
-    # Svømmer mod venstre
-    if velocity < 0:
-        ... tegn finner og øjne ...
-\end{python}
 \end{minipage}
 \begin{minipage}{0.40\linewidth}
 \includegraphics[width=0.70\textwidth]{../illustrations/images/fisk-begge-retninger.png}
@@ -500,7 +549,6 @@ flere elementer. F.eks. bobler der dukker op fra bunden og svømmer mod
 overfladen.
 \end{exercisebox}
 \newpage
-
 
 \begin{exercisebox}[adjusted title=Flere opgaver om betingelser]
 Åbn Green City projektet og gør følgende:
@@ -518,15 +566,15 @@ Bilen skal stoppe, når batteriet er tomt:
   \item Vis batteriets status vha. \ttpy{text(string, x, y)}-funktionen.
     Husk at konvertere tallet til en string vha. \ttpy{str()}.\footnote{Læs om \ttpy{text()} i
       onlinedokumentationen
-      \url{https://py.processing.org/reference/text.html}}
+      \url{https://p5js.org/reference/##/p5/text}}
   \item Hvis batteriet er tomt (\ttpy{<= 0}), skal bilen stoppe (sæt velocity til 0)
   \end{itemize}
 
 \noindent
-Tilføj en \ttpy{keyPressed()}-funktion og gør så man kan oplade elbilen, når man trykker 'C':
+Tilføj en \ttpy{keyPressed()}-funktion og gør så man kan oplade elbilen, når man trykker 'c':
 \begin{itemize}
   \item Læg \ttpy{0.3} til \ttpy{carBattery}, hver gang der
-    trykkes 'C' på tastaturet
+    trykkes 'c' på tastaturet
   \item Hvis \ttpy{carBattery} overstiger 100, så sæt den til
     100, så man ikke kan lade til mere end 100\%
 \end{itemize}
@@ -539,12 +587,14 @@ hver gang der er gået 300 frames (5 sekunder).
 
 \noindent
 Indtast dette i draw-funktionen i Green City-projektet:
-\begin{python}
+
+\begin{javascript}
 fill(0, 0, 0)
 text(frameCount, 350, 20)
-if frameCount % 300 == 0:
-    print(frameCount)
-\end{python}
+if (frameCount % 300 === 0) {
+    print(frameCount);
+}
+\end{javascript}
 
 \noindent
 Ovenstående skal læses som: ``hver gang 300 går op i
@@ -571,8 +621,8 @@ Det kan vi bruge til at opdatere vindhastigheden hvert sekund:
 %   \item Opret en variabel \ttpy{co2emission} og læg lidt til så længe
 %     kraftværket er tændt. Vis værdien med \ttpy{text()}
 %   \end{itemize}
-\end{exercisebox}
 
+\end{exercisebox}
 \newpage
 \stepcounter{handout}
 \renewcommand{\Title}{\Ark Tilstandsmaskiner (Finite state machines)}
@@ -593,11 +643,13 @@ Tilstandsdiagram:
 \noindent
 \includegraphics[width=0.85\textwidth]{../illustrations/graphviz/combinationLock_dumb}
 
-Hent Processing.py koden til kombinationslåsen her:
-\mbox{\url{http://kortlink.dk/ufdh}} og kopier den ind i et nyt Processing-projekt.
+Hent p5.js koden til kombinationslåsen her:
+
+\mbox{\url{https://editor.p5js.org/dybber/sketches/fmR58b9-7}} og gem
+projektet under jeres egen bruger.
 
 % Indtast følgende kode:
-% \begin{python}
+% \begin{javascript}
 % lockState = "LOCKED"
 
 % def setup():
@@ -625,7 +677,7 @@ Hent Processing.py koden til kombinationslåsen her:
 %             lockState = "UNLOCKED"
 %         else:
 %             lockState = "SECOND_CORRECT"
-% \end{python}
+% \end{javascript}
 \end{minipage}
 
 \begin{itemize}
@@ -643,6 +695,7 @@ at gætte sig frem?
   tilstand, så der kræves 4 cifre. Tilføj dernæst den ekstra tilstand i koden.
 \end{itemize}
 \end{exercisebox}
+
 \begin{exercisebox}[adjusted title=Automatisk genlås efter 2 sekunder]
 Lad os udvide låsen, så døren automatisk låser igen efter 2 sekunder,
 hvilket svarer til 120 frames:
@@ -657,39 +710,45 @@ hvilket svarer til 120 frames:
 \item Sæt \ttpy{timer}-variablen til 120, så snart låsen bliver låst op, det vil
   sige, når den skifter \ttpy{lockState} til \ttpy{"UNLOCKED"}.
 \item Tæl ned med timeren i hver frame (tilføj følgende til \ttpy{draw}-funktionen):
-\begin{python}
-global timer
-if timer > 0:
-    timer = timer - 1
-\end{python}
-\item Når timeren er talt helt ned, skal låsen åbnes. I
+
+\begin{javascript}
+if (timer > 0) {
+    timer = timer - 1;
+}
+\end{javascript}
+
+\item Når timeren er talt helt ned, skal låsen låses. I
   \ttpy{draw}-funktionen skal I nu tjekke, om vi er i tilstanden
   \ttpy{"UNLOCKED"} og timeren samtidig er talt ned til 0. Indsæt
   følgende i \ttpy{draw}:
-\begin{python}
-if lockState == "UNLOCKED":
-    if timer == 0:
-        lockState = "LOCKED"
-\end{python}
+  
+\begin{javascript}
+if (lockState === "UNLOCKED") {
+    if (timer === 0) {
+        lockState = "LOCKED";
+    }
+}
+        
+\end{javascript}
 \end{itemize}
 \end{exercisebox}
 
-\newpage
-\begin{exercisebox}[adjusted title=Sæt på pause]
+\begin{exercisebox}[adjusted title=Sæt på pause (Akvarie-projektet)]
 Vi kan også lave en tilstandsmaskine til at styre det overordnede
 niveau af et spil: Er spillet i gang? Er vi i menuen? Er spillet på
 pause? Er vi game over?
 
 Vi vil ikke gå så langt, men kun tilføje at man kan sætte
-fiske-projektet på pause. Det vil sige følgende simple tilstandsmaskine:
+akvarie-projektet på pause. Det vil sige følgende simple tilstandsmaskine:
 \begin{center}
 \includegraphics[width=0.5\textwidth]{../illustrations/graphviz/pause}
 \end{center}
 
+
 \noindent
 Styringsmæssigt skal der laves følgende ændringer:
 \begin{itemize}
-\item Opret en ny global variabel \ttpy{main_state = "RUNNING"}
+\item Opret en ny global variabel \ttpy{gameState = "RUNNING"}
 \item Tilføj en \ttpy{keyPressed()}-funktion:
   \begin{itemize}
   \item Hvis man er i \ttpy{"RUNNING"}-tilstanden og man trykker
@@ -701,18 +760,21 @@ Styringsmæssigt skal der laves følgende ændringer:
 
 \noindent
 Derudover, så skal hele \ttpy{draw()}-funktionen pakkes ind i en betingelse:
-\begin{python}
-def draw():
-    if game_state == "RUNNING":
-        # Kroppen af oprindelig draw-funktion flyttes herind
-        # Både tegne og bevægelses-kommandoer
-    elif game_state == "PAUSED":
-        # Tegn pause-tekst
-        background(61, 213, 255)
-        textSize(32)
-        fill(255, 255, 255)
-        text("PAUSE", 150, 200)
-\end{python}
+\begin{javascript}
+function draw() {
+    if (gameState === "RUNNING") {
+        // Kroppen af oprindelig draw-funktion flyttes herind
+        // Både tegne og bevægelses-kommandoer
+    }
+    else if (gameState === "PAUSED") {
+        // Tegn pause-tekst
+        background(61, 213, 255);
+        textSize(32);
+        fill(255, 255, 255);
+        text("PAUSE", 150, 200);
+    }
+}
+\end{javascript}
 
 \begin{center}
   \includegraphics[width=0.40\textwidth]{../illustrations/images/fisk-begge-retninger.png}
@@ -720,8 +782,6 @@ def draw():
 \includegraphics[width=0.4\textwidth]{../illustrations/images/fish-paused}
 \end{center}
 \end{exercisebox}
-
-
 % \chapter{Alarm}
 % Et andet eksempel på en tilstandsmaskine er en tyverialarm. Den har
 % tre tilstande ``DEAKTIVERET'', ``AKTIV'' og ``ALARM''. Her er
@@ -735,7 +795,7 @@ def draw():
 % funktionalitet til at opdage et indbrud, ``bevægelse registreret'' i
 % figuren ovenfor. Det sker når man bevæger musen ind i cirklen i
 % midten.
-% \begin{python}
+% \begin{javascript}
 % alarmState = "DEAKTIVERET"
 
 % def setup():
@@ -760,7 +820,7 @@ def draw():
 
 % def keyPressed():
 %     # indtast kode til at slå alarmen til/fra her
-% \end{python}
+% \end{javascript}
 
 % \noindent
 % Det er nu din opgave at tilføje de sidste dele der gør det muligt at
@@ -781,10 +841,11 @@ def draw():
 \stepcounter{handout}
 \renewcommand{\Title}{\Ark Tilstandsmaskiner (Finite state machines)}
 \begin{exercisebox}[adjusted title=Tilstand for bilen]
-Vi skal nu bruge en tilstandsmaskine til at få afsluttet
-Green City-projektet, men det kommer til at tage nogle skridt. Først skal vi
-have omskrevet logikken i bilen til at bruge en tilstandsmaskine i
-stedet for ``carXVelocity''. Vi har lige nu 3 tilstande:
+Vi skal nu bruge en tilstandsmaskine til Green City-projektet, men det
+kommer til at tage nogle skridt. Først skal vi have omskrevet logikken
+i bilen til at bruge en tilstandsmaskine \textbf{i stedet for}
+``carXVelocity''. Vi indfører en tilstandsmaskine med følgende tre
+tilstande (og fjerner brugen af carXVelocity til at ændre retning):
 \begin{itemize}
 \item \ttpy{"FORWARD"} - bilen kører mod højre
 \item \ttpy{"BACKWARD"} - bilen kører mod venstre
@@ -805,30 +866,37 @@ stedet for ``carXVelocity''. Vi har lige nu 3 tilstande:
 Koden skal have følgende struktur. Din opgave er at udfylde ``...''
 med koden der flytter bilen, skifter tilstand og bruger strøm fra
 batteriet.
-\begin{python}
-    if carState == "FORWARD":
+\begin{javascript}
+    if (carState === "FORWARD") {
         ...
-        if carX > 400:
+        if (carX > 400) {
             ...
-        if carBattery <= 0:
+        }
+        if (carBattery <= 0) {
             ...
-    elif carState == "BACKWARD":
+        }
+    }
+    else if (carState === "BACKWARD") {
         ...
-        if carX < 0:
+        if (carX < 0) {
             ...
-        if carBattery <= 0:
+        }
+        if (carBattery <= 0) {
             ...
-    elif carState == "OUT_OF_FUEL":
-        pass # pass means "do nothing"
-\end{python}
+        }
+    else if (carState === "OUT_OF_FUEL") {
+        // gør ingenting
+    }
+\end{javascript}
 \end{exercisebox}
+
 \newpage
 \begin{exercisebox}[adjusted title=Udvidet tilstandsmaskine]
 Vi skal nu have gjort, så bilen parkerer, hver gang den når venstre side
 af skærmen. Derfor udvider vi vores tilstandsmaskine med en
 parkeringstilstand:
 \begin{center}
-\includegraphics[width=\textwidth]{../illustrations/graphviz/carStateMachine_parking}
+\includegraphics[width=1\textwidth]{../illustrations/graphviz/carStateMachine_parking}
 \end{center}
 
 \noindent
@@ -847,7 +915,7 @@ Den sidste udvidelse af tilstandsmaskinen gør at vi kun kan oplade
 bilen imens vi er parkeret.
 
 \hspace{-3cm}
-\includegraphics[width=1.45\textwidth]{../illustrations/graphviz/carStateMachine_charging}
+\includegraphics[width=1.4\textwidth]{../illustrations/graphviz/carStateMachine_charging}
 
 \noindent
 Der tilføjes tre skift mellem tilstande:
@@ -867,10 +935,11 @@ Samtidig skal der tilføjes kode så bilen lader automatisk, så længe
 Den sidste del af projektet er at få CO2-udledningen til at afhænge af
 vindhastigheden. Vi opretter en global variabel \ttpy{totalEmission}
 og sætter den til:
-\begin{python}
-if carState == "CHARGING":
+\begin{javascript}
+if (carState === "CHARGING") {
     totalEmission = totalEmission + 4 - windSpeed
-\end{python}
+}
+\end{javascript}
 
 \noindent
 Når windSpeed er 4 m/s, vil der derfor ikke forurenes, når windSpeed er
@@ -884,7 +953,7 @@ Når windSpeed er 4 m/s, vil der derfor ikke forurenes, når windSpeed er
 % fiske-objekt der gemmer alle værdierne om en fisk (x, y, hastighed,
 % øjenstørrelse).
 
-% \begin{python}
+% \begin{javascript}
 % def makeFish(x, y, velocity, eyeSize):
 %     return { "x" : x,
 %              "y" : y,
@@ -897,9 +966,9 @@ Når windSpeed er 4 m/s, vil der derfor ikke forurenes, når windSpeed er
 % print(fish1["y"])
 % print(fish1["velocity"])
 % print(fish1["eyeSize"])
-% \end{python}
+% \end{javascript}
 
-% \begin{python}
+% \begin{javascript}
 % def drawFish(fish):
 %     x = fish["x"]
 %     y = fish["y"]
@@ -909,7 +978,7 @@ Når windSpeed er 4 m/s, vil der derfor ikke forurenes, når windSpeed er
 
 % def moveFish(fish):
 %     fish["x"] = fish["x"] + 1
-% \end{python}
+% \end{javascript}
 
 
 
@@ -923,11 +992,11 @@ Når windSpeed er 4 m/s, vil der derfor ikke forurenes, når windSpeed er
 % Med kommandoen \ttpy{translate(x,y)}, kan vi ændre hele
 % koordinatsystemet, så vi kan tegne med origo et andet sted end øverst
 % til venstre (med andre ord: flytte hvor vi har koordinat $(0,0)$).
-% \begin{python}
+% \begin{javascript}
 % translate(150, 100)
 % ellipse(0, 0, 120, 75)
 % triangle(-60, 0, -90, -30, -90, 30)
-% \end{python}
+% \end{javascript}
 
 % \chapter{Roter koordinatsystemet}
 % Rotation af koordinatsystemet gøres med kommandoen \ttpy{rotate(rad)} og
@@ -937,12 +1006,12 @@ Når windSpeed er 4 m/s, vil der derfor ikke forurenes, når windSpeed er
 
 % \noindent
 % Eksempel:
-% \begin{python}
+% \begin{javascript}
 % translate(150, 100)
 % rotate(PI/2)
 % ellipse(0, 0, 120, 75)
 % triangle(-60, 0, -90, -30, -90, 30)
-% \end{python}
+% \end{javascript}
 
 % \noindent
 % \textbf{Bemærk:} \ttpy{rotate} tager en værdi i radianer ($0-2\pi$)

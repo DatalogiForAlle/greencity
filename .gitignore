@@ -275,3 +275,4 @@ TSWLatexianTemp*
 # Makeindex log files
 *.lpz
 /processingpy/worksheets_processingpy.pdf
+/p5js/worksheets_p5js.pdf
