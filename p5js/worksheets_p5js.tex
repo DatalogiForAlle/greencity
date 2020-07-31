@@ -21,6 +21,7 @@ koden.
 \begin{javascript} 
 function setup() {
   createCanvas(400, 400);
+  noLoop();
 }
 
 function draw() {
@@ -30,7 +31,6 @@ function draw() {
 }
 \end{javascript}
 
-\vspace{3mm}
 \noindent
 Gem projektet og kald det ``GreenCity'' (kræver at du opretter en bruger).
 
@@ -65,8 +65,8 @@ line(300, 50, 300, 90);
 \tcbsubtitle{Opgave}
 Prøv nu at tegne en bil og en sky:
 
-\includegraphics[width=0.4\textwidth]{../illustrations/images/bil-streg.png}
-\includegraphics[width=0.3\textwidth]{../illustrations/images/sky.png}
+\includegraphics[width=0.3\textwidth]{../illustrations/images/bil-streg.png}
+\includegraphics[width=0.25\textwidth]{../illustrations/images/sky.png}
 \end{exercisebox}
 
 \begin{exercisebox}[adjusted title=Farver]
@@ -110,7 +110,7 @@ til at slå optegning af omrids fra.
 \begin{exercisebox}[adjusted title=Eksempel]
 Her er et eksempel på hvordan det kan se ud efter farvelægning:
 \begin{center}
-\includegraphics[width=0.55\textwidth]{../illustrations/images/farvelagt.png}
+\includegraphics[width=0.5\textwidth]{../illustrations/images/farvelagt.png}
 \end{center}
 \end{exercisebox}
 
@@ -121,19 +121,21 @@ der. Senere skal vi udbygge projektet til en simulation, hvor bilen
 skal oplades med strøm fra enten vindmølle eller kraftværket, men hvor
 bilen helst skal lades op med grøn strøm fra vindmøllen.
 
+~
+
 Nedenfor er vist to eksempler, hvor der f.eks. er tegnet veje og
 flyttet lidt rundt på figurerne. Der er ikke noget facit på, hvordan
 det skal se ud.
 
-\vspace{2mm}
-\noindent
+~
+
 Tip: For at ændre baggrundsfarven  kan I bruge \ttpy{rect(0, 0, 400, 400)}, som I
 allerede kender, men I kan også bruge kommandoen \ttpy{background(r, g, b)}.
 Den sletter alt og udfylder skærmen med den angivne farve.
 
 \begin{center}
   \includegraphics[width=0.49\textwidth]{../illustrations/images/elbil.png}
-  \includegraphics[width=0.49\textwidth]{../illustrations/images/miniby.png}
+  \includegraphics[width=0.495\textwidth]{../illustrations/images/miniby.png}
 \end{center}
 
 \noindent
@@ -152,6 +154,7 @@ Skriv denne stump kode ind:
 \begin{javascript}
 function setup() {
   createCanvas(400, 400);
+  noLoop();
 }
 
 function draw() {
@@ -166,7 +169,7 @@ function draw() {
 Kør koden og prøv derefter at ændre 150 til et andet tal i angivelsen af \ttpy{fishX}.\\
 
 \noindent
-Tilføj nu følgende:
+Tilføj nu følgende inde i \ttpy{draw}-funktionen:
 \begin{javascript}
 var eyeSize = 15;
 ellipse(fishX + 30, 190, eyeSize, eyeSize);
@@ -323,6 +326,7 @@ var x = 50;
 
 function setup() {
     createCanvas(400, 400);
+    // bemærk at vi ikke længere kalder noLoop();
 }
 
 function draw() {
